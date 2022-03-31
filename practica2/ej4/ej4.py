@@ -1,4 +1,3 @@
-from random import randrange
 
 
 evaluar = """título: Experiences in Developing a Distributed Agent-based Modeling Toolkit
@@ -23,16 +22,22 @@ def rank_orations(resume, text_counter):
     for oration in orations:
         len_oration = len(oration.split())
         match len_oration:
-            case  0 | 1 | 2:
+            case len_oration if len_oration <= 12:
                 text_counter['easy_read'] += 1
-        if len_oration <= 12:
-            text_counter['easy_read'] += 1
-        elif len_oration <= 17:
-            text_counter['aceptable_read'] += 1
-        elif len_oration <= 25:
-            text_counter['hard_read'] += 1
-        else:
-            text_counter['very_hard_read'] += 1
+            case  len_oration if len_oration <= 17:
+                text_counter['aceptable_read'] += 1
+            case  len_oration if len_oration <= 25:
+                text_counter['hard_read'] += 1
+            case  len_oration if len_oration > 25:
+                text_counter['very_hard_read'] += 1
+        # if len_oration <= 12:
+        #     text_counter['easy_read'] += 1
+        # elif len_oration <= 17:
+        #     text_counter['aceptable_read'] += 1
+        # elif len_oration <= 25:
+        #     text_counter['hard_read'] += 1
+        # else:
+        #     text_counter['very_hard_read'] += 1
 
 
 def analize_text(title, resume):
