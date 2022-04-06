@@ -19,8 +19,9 @@ all_letters = string.ascii_letters
 phrase = input(
     ' Ingrese una palabra o frase para saber si es un heterograma\n').lower()
 
-print(re.sub('[^a-z]', '', phrase))
 
+phrase = re.sub('[^a-z]', '', phrase)
+print(phrase)
 # implementacion con set
 
 unique_letters = set(phrase)
